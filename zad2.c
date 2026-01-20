@@ -1,16 +1,30 @@
 #include <stdio.h>
 
-int recursive_series(int n){
-	if(n == 1 || n < 1){
-		return printf("%d", 1);
+int recursive_series(int n, int krok){
+	if(krok > 100){
+		return -1;
+	}
+	if(n <= 1){
+		return 1;
 	} else if(n % 2 == 0){
-		return printf("%d", (n / 2) + 2);
-	} else return printf("%d", (n - 1) * 3);
+		krok++;
+		n = (n / 2) + 2;
+		printf("Krok %d: %d\n", krok, n);
+		return recursive_series(n, krok);
+	} else {
+		krok++;
+		n = (n - 1) * 3;
+		printf("Krok %d: %d\n", krok, n);
+		return recursive_series(n, krok);
+	}
 }
 
 int main(){
-	int n;
+	int n, krok = 0;
 	scanf("%d", &n);
-	recursive_series(n);
+	if(recursive_series(n, krok) == -1){
+		printf("Przekroczono limit krokow\n");
+		return 0;
+	} else printf("%d", recursive_series(n, krok));
 	return 0;
 }

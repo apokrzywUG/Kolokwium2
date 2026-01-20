@@ -1,10 +1,11 @@
 #include <stdio.h>
 
 int process_number(int n){
+	int krok = 0;
 	if( n < 0 ){
-		return -1;
+		return krok;
 	}
-	int krok;
+	
 	while (n > 1 && krok < 100){
 		int a = n % 3;
 		if(a == 0){
@@ -19,12 +20,12 @@ int process_number(int n){
 		} else return 1; 
 		krok++;
 	}
-	return printf("krokow: %d", krok);
+	return krok;
 }
 
 int main(){
 	int n;
 	scanf("%d", &n);
-	process_number(n);
+	printf("krokow: %d\n", process_number(n));
 	return 0;
 }
