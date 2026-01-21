@@ -27,6 +27,7 @@ int text_processor(const char *str){
 int main(){
 	char tekst[100];
 	fgets(tekst, sizeof(tekst), stdin);
+	printf("%s", tekst);
 	printf("Wynik: %d\n", text_processor(tekst));
 	return 0;
 }
